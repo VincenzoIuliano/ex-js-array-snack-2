@@ -86,3 +86,9 @@ if (areAuthorsAdults) {
     authors.sort((a,b) => b.age - a.age)
 }
 console.log(authors);
+
+const ages = books.map (b => b.author.age)
+console.log(ages);
+
+const agesSum = ages.reduce((acc, age) => acc + age, 0)
+console.log(agesSum);
