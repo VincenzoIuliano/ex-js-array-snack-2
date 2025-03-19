@@ -54,3 +54,22 @@ console.log(longBooksTitles);
 const titles = books.map(book => book.title)
 console.log(titles);
 
+const availableBooks = books.filter(book => book.available)
+console.log(availableBooks);
+
+const discountedBooks = availableBooks.map(book => {
+    const price = parseFloat(book.price.replace('€',''));
+    const discountPrice = (price * 0.8).toFixed(2);
+    return {
+        ...book,
+        price: `${discountPrice}€`
+    }
+})
+console.log(discountedBooks);
+
+const fullPriceBook = discountedBooks.find(book => {
+    const price = parseFloat(book.price.replace('€',''));
+    return price % 1 == 0
+})
+
+console.log(fullPriceBook);
